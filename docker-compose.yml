@@ -24,4 +24,15 @@ services:
     ports:
       - 80:80
       - 443:443
+    depends_on:
+      - drupal
+      
+  certbot:
+    image: certbot
+    volumes:
+      - certbot_data:/etc/letsencrypt
+      - certbot_log:/var/log/letsencrypt
+    command: certonly --webroot --webroot-path=/var/www/html --email info@fatihbilgi.com --staging -d fatihbilgi.com
+    depends_on:
+      - webserver
       
