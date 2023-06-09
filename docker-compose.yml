@@ -11,3 +11,17 @@ services:
       - MARIADB_USER = YAM428
       - MARIADB_PASSWORD = 030718050
       - MARIADB_DATABASE = final
+      
+  db:
+    image: bitnami/mariadb:latest
+    environment:
+      - MARIADB_USER = YAM428
+      - MARIADB_PASSWORD = 030718050
+      - MARIADB_DATABASE = final
+      
+  webserver:
+    image: nginx
+    ports:
+      - 80:80
+      - 443:443
+      
